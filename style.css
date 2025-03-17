@@ -35,7 +35,7 @@
     display: flex;
     justify-content:center ;
     align-items: center;
-    flex-wrap: wrap;
+    
 }
 .main-header-elements{
     display: flex;
@@ -48,4 +48,29 @@
 .main-header-elements img{
     height: 1.25rem;
     margin-right: 0.3rem;
+}
+
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .main-header-elements {
+        margin: 0;
+        flex-direction: column;
+    }
+
+    .main-header-elements img {
+        height: 3rem;
+    }
+
+    .header-img {
+        height: 8rem;
+    }
+
+    .main-heading {
+        font-size: 1rem;
+        text-align: center;
+    }
 }
