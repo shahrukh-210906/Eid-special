@@ -3,91 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eid Mood & Quran Quotes</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        function showQuote(mood) {
-            const quotes = {
-                happy: ["“To God belongs the future of the heavens and the earth, and all matters are controlled by Him. You shall worship Him and trust in Him. Your Lord is never unaware of anything you do.” (Quran, 11:123)",
-                        "“If you express gratitude, I shall certainly give you more, and if you are ungrateful, then My punishment is severe.” (Quran, 14:7)",
-                        "“By time, surely man is in loss, save those who believe and do good deeds, and enjoin on each other truth, and enjoin on each other patience.” (Quran, 103:1-3)",
-                        "“Indeed, Allah enjoins justice, and the doing of good to others, and giving like kindred, and forbids indecency, and manifest evil, and wrongful transgression. He admonished you that you may take heed.” (Quran, 16:91)",
-                        "“Indeed, the worst of living creatures in the sight of Allah are the deaf and dumb who do not use reason.” (Quran, 8:22)"
-                ],
-                sad: ["O you who have believed, seek help through patience and prayer. Indeed, Allah is with the patient.” (2:153)",
-                      "“We will certainly test you with a touch of fear and famine and loss of property, life, and crops. Give good news to those who patiently endure who, when faced with a disaster, say, “Surely to Allah we belong and to Him we will ˹all˺ return.” [2:155–156]",
-                      "“They are the ones who will receive Allah’s blessings and mercy. And it is they who are ˹rightly˺ guided.” [2:157]",
-                      "“So do not weaken and do not grieve, and you will be superior if you are [true] believers.” (3:139)",
-                      "“My dear son, establish Salah , and bid the Fair and forbid the Unfair, and observe patience on what befalls you.” (31:17)",
-                      "“Allah ˹alone˺ is sufficient ˹as an aid˺ for us and ˹He˺ is the best Protector.” (3:173)",
-                      "“And no soul knows what has been hidden for them of comfort for eyes [i.e., satisfaction] as reward for what they used to do.” (32:17)",
-                      "“And whoever puts their trust in Allah, then He ˹alone˺ is sufficient for them.” (65:3)",
-                      "“Surely with ˹that˺ hardship comes ˹more˺ ease.” (94:6)",
-                ],
-                angry: ["“And the servants of the Most Merciful are those who walk upon the earth easily, and when the ignorant address them [harshly], they say [words of] peace.” (25:63)",
-                        " Allah’s Messenger (ﷺ) said, “The strong is not the one who overcomes the people by his strength, but the strong is the one who controls himself while in anger.” (Sahih al-Bukhari 6114)",
-                        "“Those who spend [in Allah’s cause] during ease and hardship and who restrain anger and who pardon the people – and Allah loves the doers of good.” (3:134)",
-                        "Allah’s Messenger (ﷺ) as saying, “Sudden death is an act of punishment out of anger.” (Abu Dawud transmitted it.) Baihaqi in Shu’ab al-iman  and Razin in his book made an addition, saying “An act of punishment out of anger for the infidel and a mercy for the believer.” (Mishkat al-Masabih 1611)"
-                       
+    <title>Noor-e-Hadiyah</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-                ]
-            };
-            
-            if (quotes[mood].length > 0) {
-                const randomQuote = quotes[mood][Math.floor(Math.random() * quotes[mood].length)];
-                document.getElementById('quote').innerText = "Remember: " + randomQuote;
-                document.getElementById('quoteBox').classList.remove('hidden');
-            } else {
-                document.getElementById('quote').innerText = "No quotes available for this mood.";
-                document.getElementById('quoteBox').classList.remove('hidden');
-            }
-        }
-    </script>
-    <style>
-        .tomb-shape {
-            position: relative;
-            background: #4c1d95;
-            padding: 2rem;
-            border: 4px solid #FFD700;
-            border-radius: 50% 50% 0 0;
-            width: 90%;
-            max-width: 400px;
-            margin: auto;
-            box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.5);
-        }
-        .tomb-shape::before {
-            content: "";
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 30px;
-            background: #4c1d95;
-            border-top: 4px solid #FFD700;
-            border-left: 4px solid #FFD700;
-            border-right: 4px solid #FFD700;
-            border-radius: 50% 50% 0 0;
-        }
-    </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen bg-purple-900 text-white p-6">
-    <h1 class="text-4xl font-bold mb-6 text-center drop-shadow-lg">Select Your Mood</h1>
-    <div class="grid grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-md">
-        <button onclick="showQuote('happy')" class="p-2 rounded-full border-4 border-yellow-500 hover:scale-110 transition-all bg-purple-800 shadow-md">
-            <img src="https://img.favpng.com/16/1/5/happy-face-emoji-png-favpng-vbi9Sg32ZJdDqCrQnMf9W1kvA.jpg" alt="Happy" class="w-24 h-24 mx-auto rounded-full">
-        </button>
-        <button onclick="showQuote('sad')" class="p-2 rounded-full border-4 border-yellow-500 hover:scale-110 transition-all bg-purple-800 shadow-md">
-            <img src="https://th.bing.com/th/id/OIP.8Hxieec4oE1aaV0wMZH2NAHaH4?rs=1&pid=ImgDetMain" alt="Sad" class="w-24 h-24 mx-auto rounded-full">
-        </button>
-        <button onclick="showQuote('angry')" class="p-2 rounded-full border-4 border-yellow-500 hover:scale-110 transition-all bg-purple-800 shadow-md">
-            <img src="https://cdn.dribbble.com/users/2454973/screenshots/7365144/88_4x.jpg" alt="Angry" class="w-24 h-24 mx-auto rounded-full">
-        </button>
-        
+<body>
+    <div class="header">
+        <h2 class="header-txt">Starts with</h2>
+        <img src="./assests/pngtree-bismillah-arabic-calligraphy-png-and-vector-png-image_7965768.png" class="header-img">
+    </div>
+    <div class="main-heading">
+        <h1>Choose when you are...</h1>
     </div>
     
-    <div id="quoteBox" class="hidden mt-6 p-6 bg-purple-800 border-4 border-yellow-500 text-yellow-300 shadow-lg rounded-lg text-center max-w-md">
-        <p id="quote" class="text-xl font-semibold"></p>
+
+    <div class="main">
+        <div class="main-header">
+            <div class="main-header-elements">
+                <img src="./assests/blue.jpeg">
+                <p>Happy</p>
+            </div>
+            <div class="main-header-elements">
+                <img src="./assests/red.jpeg">
+                <p>Angry</p>
+            </div>
+            <div class="main-header-elements">
+                <img src="./assests/yellow.jpg">
+                <p>Thankful</p>
+            </div>
+            <div class="main-header-elements">
+                <img src="./assests/green.jpeg">
+                <p>Sad</p>
+            </div>
+            <div class="main-header-elements">
+                <img src="./assests/purple.jpg">
+                <p>Anxious</p>
+            </div>
+            <div class="main-header-elements">
+                <img src="./assests/orange.jpeg">
+                <p>Lonely</p>
+            </div>
+        </div>
+
+        <div></div>
     </div>
 </body>
 </html>
