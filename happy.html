@@ -3,9 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy</title>
+    <title>Happiness in Islam</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #88e3ff;
+            padding: 20px;
+        }
+        h1 {
+            color: #ffa488;
+        }
+        .dua-button, .water-drop {
+            background-color: #ffa488;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .dua-text, .hadith-text, .gratitude-text {
+            display: none;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        .breathing {
+            margin-top: 20px;
+            font-size: 20px;
+            animation: breathe 4s infinite alternate;
+        }
+        @keyframes breathe {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+    </style>
+    <script>
+       
+
+       function showHadith() {
+    const hadiths = [
+        {
+            "arabic": "قُلْ بِفَضْلِ اللَّهِ وَبِرَحْمَتِهِ فَبِذَٰلِكَ فَلْيَفْرَحُوا",
+            "english": "Say, 'In the bounty of Allah and in His mercy – in that let them rejoice.' (Quran 10:58)",
+            "urdu": "کہو، 'اللہ کے فضل اور اس کی رحمت پر خوش ہو جاؤ۔' (القرآن 10:58)"
+        },
+        {
+            "arabic": "إِنَّ الْأَبْرَارَ لَفِي نَعِيمٍ",
+            "english": "Indeed, the righteous will be in bliss. (Quran 82:13)",
+            "urdu": "بے شک نیک لوگ نعمتوں میں ہوں گے۔ (القرآن 82:13)"
+        },
+        {
+            "arabic": "أَفْضَلُ النَّاسِ كُلُّ مَخْمُومِ الْقَلْبِ صَدُوقِ اللِّسَانِ",
+            "english": "The best of people are those with pure hearts and truthful tongues. (Ibn Majah 4216)",
+            "urdu": "بہترین لوگ وہ ہیں جن کے دل پاک اور زبان سچی ہو۔ (ابن ماجہ 4216)"
+        },
+        {
+            "arabic": "اللَّهُمَّ إِنِّي أَسْأَلُكَ السَّعَادَةَ فِي الدُّنْيَا وَالْآخِرَةِ",
+            "english": "O Allah, I ask You for happiness in this world and the Hereafter. (Tirmidhi 3502)",
+            "urdu": "اے اللہ! میں تجھ سے دنیا اور آخرت میں خوشی مانگتا ہوں۔ (ترمذی 3502)"
+        },
+        {
+            "arabic": "خَيْرُ النَّاسِ أَنْفَعُهُمْ لِلنَّاسِ",
+            "english": "The best of people are those who benefit others the most. (Daraqutni 213)",
+            "urdu": "بہترین لوگ وہ ہیں جو دوسروں کے لیے سب سے زیادہ نفع بخش ہوں۔ (دارقطنی 213)"
+        },
+        {
+            "arabic": "مَنْ عَمِلَ صَالِحًا مِّن ذَكَرٍ أَوْ أُنثَىٰ وَهُوَ مُؤْمِنٌ فَلَنُحْيِيَنَّهُ حَيَاةً طَيِّبَةً",
+            "english": "Whoever does good, whether male or female, and is a believer – We will surely give them a good life. (Quran 16:97)",
+            "urdu": "جو بھی نیک عمل کرے، خواہ مرد ہو یا عورت، اور وہ مومن ہو – ہم اسے یقیناً پاکیزہ زندگی عطا کریں گے۔ (القرآن 16:97)"
+        },
+        {
+            "arabic": "أَحَبُّ الْأَعْمَالِ إِلَى اللَّهِ سُرُورٌ تُدْخِلُهُ عَلَى مُسْلِمٍ",
+            "english": "The most beloved deed to Allah is bringing happiness to a Muslim. (Tabarani 6195)",
+            "urdu": "اللہ کے نزدیک سب سے محبوب عمل کسی مسلمان کو خوشی پہنچانا ہے۔ (طبرانی 6195)"
+        },
+        {
+            "arabic": "الْكَلِمَةُ الطَّيِّبَةُ صَدَقَةٌ",
+            "english": "A kind word is charity. (Bukhari 2989)",
+            "urdu": "اچھی بات کرنا صدقہ ہے۔ (بخاری 2989)"
+        },
+        {
+            "arabic": "وَجُوهٌ يَوْمَئِذٍ مُّسْفِرَةٌ ضَاحِكَةٌ مُّسْتَبْشِرَةٌ",
+            "english": "Some faces, that Day, will be bright, laughing, and rejoicing. (Quran 80:38-39)",
+            "urdu": "اس دن کچھ چہرے روشن ہوں گے، ہنستے اور خوش ہوتے ہوئے۔ (القرآن 80:38-39)"
+        },
+        {
+            "arabic": "لَا تُكْثِرِ الضَّحِكَ، فَإِنَّ كَثْرَةَ الضَّحِكِ تُمِيتُ الْقَلْبَ",
+            "english": "Do not laugh excessively, for excessive laughter deadens the heart. (Tirmidhi 2305)",
+            "urdu": "زیادہ نہ ہنسا کرو، کیونکہ زیادہ ہنسنا دل کو مردہ کر دیتا ہے۔ (ترمذی 2305)"
+        }
+    ];
+
+    // Select a random hadith or ayah
+    const randomHadith = hadiths[Math.floor(Math.random() * hadiths.length)];
+
+    // Format and display it
+    document.getElementById("hadithText").innerHTML = `
+        <p style="font-size: 20px; text-align: center;">${randomHadith.arabic}</p>
+        <p style="font-size: 18px; text-align: center;">${randomHadith.english}</p>
+        <p style="font-size: 18px; text-align: center;">${randomHadith.urdu}</p>
+    `;
+
+    document.getElementById("hadithText").style.display = "block";
+}
+
+function showDua() {
+            document.getElementById("duaText").style.display = "block";
+            new Audio('dua.mp3').play();
+        }
+        function showGratitude() {
+            document.getElementById("gratitudeText").style.display = "block";
+        }
+    </script>
 </head>
 <body>
-    <div></div>
+    <h1>Embracing Happiness in Islam 😊</h1>
+    
+    <button class="dua-button" onclick="showDua()">Read Dua for Happiness</button>
+    <p class="dua-text" id="duaText">اللهم اجعلني من الشاكرين<br><i>O Allah, make me among the grateful.</i></p>
+    
+    <button class="dua-button" onclick="showHadith()">Show Hadith and Ayat on Happiness</button>
+    <p class="hadith-text" id="hadithText"></p>
+    
+    <button class="water-drop" onclick="showGratitude()">💖 Click for Gratitude</button>
+    <p class="gratitude-text" id="gratitudeText">Happiness grows when we show gratitude to Allah. Say Alhamdulillah!</p>
+    
+    <div class="breathing">
+        <p><b>Breathe in… Feel Allah’s blessings</b></p>
+        <p><b>Breathe out… Smile with gratitude</b></p>
+    </div>
 </body>
 </html>

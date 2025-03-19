@@ -64,37 +64,3 @@ body {
 .angry { background-color: #ffa995; }
 .sad { background-color: #ff61b0; }
 .happy { background-color: #88e3ff; }
-
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #ffe5e5;
-    padding: 20px;
-}
-h1 {
-    color: #d32f2f;
-}
-.dua-button, .water-drop {
-    background-color: #d32f2f;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    margin: 10px;
-    border-radius: 5px;
-}
-.dua-text, .hadith-text, .wudu-text {
-    display: none;
-    margin-top: 10px;
-    font-size: 18px;
-}
-.breathing {
-    margin-top: 20px;
-    font-size: 20px;
-    animation: breathe 4s infinite alternate;
-}
-@keyframes breathe {
-    from { opacity: 0.5; }
-    to { opacity: 1; }
-}

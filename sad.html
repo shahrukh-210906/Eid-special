@@ -3,9 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sad</title>
+    <title>Sadness Management - Islamic Way</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffafd7;
+            padding: 20px;
+        }
+        h1 {
+            color: #00796b;
+        }
+        .dua-button, .water-drop {
+            background-color: #00796b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+        }
+        .dua-text, .hadith-text, .wudu-text {
+            display: none;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        .breathing {
+            margin-top: 20px;
+            font-size: 20px;
+            animation: breathe 4s infinite alternate;
+        }
+        @keyframes breathe {
+            from { opacity: 0.5; }
+            to { opacity: 1; }
+        }
+    </style>
+    <script>
+        function showDua() {
+            document.getElementById("duaText").style.display = "block";
+            new Audio('dua.mp3').play();
+        }
+        function showHadith() {
+    const hadiths = [
+        {
+            "arabic": "إِنَّ مَعَ الْعُسْرِ يُسْرًا",
+            "english": "Indeed, with hardship comes ease. (Quran 94:6)",
+            "urdu": "بے شک ہر مشکل کے ساتھ آسانی ہے۔ (القرآن 94:6)"
+        },
+        {
+            "arabic": "لَا تَحْزَنْ إِنَّ اللَّهَ مَعَنَا",
+            "english": "Do not grieve; indeed, Allah is with us. (Quran 9:40)",
+            "urdu": "غم نہ کرو، بے شک اللہ ہمارے ساتھ ہے۔ (القرآن 9:40)"
+        },
+        {
+            "arabic": "مَا أَصَابَ مِنْ مُصِيبَةٍ إِلَّا بِإِذْنِ اللَّهِ",
+            "english": "No disaster strikes except by permission of Allah. (Quran 64:11)",
+            "urdu": "کوئی مصیبت اللہ کے حکم کے بغیر نہیں آتی۔ (القرآن 64:11)"
+        },
+        {
+            "arabic": "اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ",
+            "english": "O Allah, I seek refuge in You from anxiety and sorrow. (Bukhari 6369)",
+            "urdu": "اے اللہ! میں تجھ سے پریشانی اور غم سے پناہ مانگتا ہوں۔ (بخاری 6369)"
+        },
+        {
+            "arabic": "إِنَّ اللَّهَ يُحِبُّ الْمُتَوَكِّلِينَ",
+            "english": "Indeed, Allah loves those who rely upon Him. (Quran 3:159)",
+            "urdu": "بے شک، اللہ توکل کرنے والوں سے محبت کرتا ہے۔ (القرآن 3:159)"
+        },
+        {
+            "arabic": "وَلَا تَيْأَسُوا مِنْ رَوْحِ اللَّهِ",
+            "english": "Do not despair of the mercy of Allah. (Quran 12:87)",
+            "urdu": "اللہ کی رحمت سے مایوس نہ ہو۔ (القرآن 12:87)"
+        },
+        {
+            "arabic": "إِنَّمَا الصَّبْرُ عِنْدَ الصَّدْمَةِ الْأُولَى",
+            "english": "Patience is at the first stroke of calamity. (Bukhari 1283)",
+            "urdu": "صبر وہ ہے جو مصیبت کے پہلے لمحے میں کیا جائے۔ (بخاری 1283)"
+        },
+        {
+            "arabic": "اللَّهُمَّ اجْعَلْ الْقُرْآنَ رَبِيعَ قَلْبِي وَجَلَاءَ حُزْنِي",
+            "english": "O Allah, make the Quran the spring of my heart and the remover of my sadness. (Ahmad 3712)",
+            "urdu": "اے اللہ! قرآن کو میرے دل کی بہار اور میرے غم کو دور کرنے والا بنا دے۔ (احمد 3712)"
+        },
+        {
+            "arabic": "لَا يُكَلِّفُ اللَّهُ نَفْسًا إِلَّا وُسْعَهَا",
+            "english": "Allah does not burden a soul beyond that it can bear. (Quran 2:286)",
+            "urdu": "اللہ کسی جان پر اس کی طاقت سے زیادہ بوجھ نہیں ڈالتا۔ (القرآن 2:286)"
+        },
+        {
+            "arabic": "وَاصْبِرْ فَإِنَّ اللَّهَ لَا يُضِيعُ أَجْرَ الْمُحْسِنِينَ",
+            "english": "Be patient, for indeed, Allah does not waste the reward of the doers of good. (Quran 11:115)",
+            "urdu": "صبر کرو، بے شک اللہ نیک لوگوں کے اجر کو ضائع نہیں کرتا۔ (القرآن 11:115)"
+        }
+    ];
+
+    // Select a random hadith or ayah
+    const randomHadith = hadiths[Math.floor(Math.random() * hadiths.length)];
+
+    // Format and display it
+    document.getElementById("hadithText").innerHTML = `
+        <p style="font-size: 20px; text-align: center;">${randomHadith.arabic}</p>
+        <p style="font-size: 18px; text-align: center;">${randomHadith.english}</p>
+        <p style="font-size: 18px; text-align: center;">${randomHadith.urdu}</p>
+    `;
+
+    document.getElementById("hadithText").style.display = "block";
+}
+
+        function showWuduReminder() {
+            document.getElementById("wuduText").style.display = "block";
+        }
+    </script>
 </head>
 <body>
-    <div></div>
+    <h1>Finding Peace in Islam 😢</h1>
+    
+    <button class="dua-button" onclick="showDua()">Read Dua for Sadness</button>
+    <p class="dua-text" id="duaText">اللهم إني أعوذ بك من الهم والحزن<br><i>O Allah, I seek refuge in You from worry and grief.</i></p>
+    
+    <button class="dua-button" onclick="showHadith()">Show Hadith & Ayat on Sadness</button>
+    <p class="hadith-text" id="hadithText"></p>
+    
+    <button class="water-drop" onclick="showWuduReminder()">💧 Click for Comfort</button>
+    <p class="wudu-text" id="wuduText">Turn to Allah in wudu and prayer for relief from sorrow.</p>
+    
+    <div class="breathing">
+        <p><b>Breathe in… Trust Allah</b></p>
+        <p><b>Breathe out… Let go of sadness</b></p>
+    </div>
 </body>
 </html>
